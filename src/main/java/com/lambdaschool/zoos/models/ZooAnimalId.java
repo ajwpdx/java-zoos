@@ -40,4 +40,20 @@ public class ZooAnimalId implements Serializable
     {
         this.animal = animal;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ZooAnimalId that = (ZooAnimalId) o;
+        return this.zoo == that.zoo &&
+                this.animal == that.animal;
+    }
+
+    @Override
+    public int hashCode() {
+        //if objects generate different hash codes, they are not equal. Then if they do not pass this test, they will go to the equals method.
+        // We are putting in 37 to make it go straight to the equals
+        return 37;
+    }
 }

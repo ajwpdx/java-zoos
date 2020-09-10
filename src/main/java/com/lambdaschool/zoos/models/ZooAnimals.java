@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table
+@Table(name = "zooanimals")
 @IdClass(ZooAnimalId.class)
 public class ZooAnimals extends Auditable implements Serializable
 {
@@ -23,11 +23,13 @@ public class ZooAnimals extends Auditable implements Serializable
     @JsonIgnoreProperties(value = "zoo", allowSetters = true)
     private Animal animal;
 
+    private String incomingzoo;
+
     public ZooAnimals()
     {
     }
 
-    public ZooAnimals(Zoo zoo, Animal animal)
+    public ZooAnimals(Zoo zoo, Animal animal, String incomingzoo)
     {
         this.zoo = zoo;
         this.animal = animal;
@@ -51,5 +53,27 @@ public class ZooAnimals extends Auditable implements Serializable
     public void setAnimal(Animal animal)
     {
         this.animal = animal;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o)
+        {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass())
+        {
+            return false;
+        }
+        ZooAnimals that = (ZooAnimals) o;
+        return (((this.zoo == null) ? 0 : this.zoo.getZooid()) == ((that.zoo == null) ? 0 : that.zoo.getZooid())) &&
+                (((this.animal == null) ? 0 : this.animal.getAnimalid()) == ((that.animal == null) ? 0 : that.animal.getAnimalid()));
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return 37;
     }
 }
