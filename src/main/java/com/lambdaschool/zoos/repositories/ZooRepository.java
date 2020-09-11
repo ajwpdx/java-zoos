@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface ZooRepository extends CrudRepository<Zoo, Long>
 {
     @Modifying
-    @Query(value = "UPDATE roles " +
+    @Query(value = "UPDATE zoos " +
             "SET name = :name, " +
             "last_modified_date = CURRENT_TIMESTAMP " +
             "last_modified_by = : uname " +

@@ -1,5 +1,5 @@
 package com.lambdaschool.zoos.services;
 
-public class TelephoneService
+public interface TelephoneService
 {
 }

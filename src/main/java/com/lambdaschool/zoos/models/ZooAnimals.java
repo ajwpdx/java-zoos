@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 @Table(name = "zooanimals")
@@ -53,6 +54,16 @@ public class ZooAnimals extends Auditable implements Serializable
     public void setAnimal(Animal animal)
     {
         this.animal = animal;
+    }
+
+    public String getIncomingzoo()
+    {
+        return incomingzoo;
+    }
+
+    public void setIncomingzoo(String incomingzoo)
+    {
+        this.incomingzoo = incomingzoo;
     }
 
     @Override

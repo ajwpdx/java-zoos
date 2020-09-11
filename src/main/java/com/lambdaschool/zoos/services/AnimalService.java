@@ -1,5 +1,8 @@
 package com.lambdaschool.zoos.services;
 
-public class AnimalService
+import com.lambdaschool.zoos.models.Animal;
+
+public interface AnimalService
 {
+    Animal update(long id, Animal animal);
 }

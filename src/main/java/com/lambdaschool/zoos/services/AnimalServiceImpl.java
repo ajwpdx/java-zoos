@@ -1,13 +1,23 @@
 package com.lambdaschool.zoos.services;
 
 import com.lambdaschool.zoos.models.Animal;
+import com.lambdaschool.zoos.repositories.AnimalRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 
-public interface AnimalServiceImpl
+@Transactional
+@Service(value = "animalService")
+public class AnimalServiceImpl implements AnimalService
 {
+    @Autowired
+    AnimalRepository animalrepos;
+
+
+
 
     @Transactional
     @Override
@@ -15,7 +25,7 @@ public interface AnimalServiceImpl
     {
         if(animal.getAnimaltype() == null)
         {
-            throw new EntityNotFoundException("No role name found to update!")
+            throw new EntityNotFoundException("No animal type found to update!")
         }
 
         if(animal.getUsers().size() > 0)

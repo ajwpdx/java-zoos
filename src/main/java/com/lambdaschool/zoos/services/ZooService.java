@@ -1,5 +1,5 @@
 package com.lambdaschool.zoos.services;
 
-public class ZooService
+public interface ZooService
 {
 }
